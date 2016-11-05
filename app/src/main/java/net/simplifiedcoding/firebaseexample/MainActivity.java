@@ -4,6 +4,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
@@ -31,6 +32,7 @@ public class MainActivity extends AppCompatActivity {
     private TextView textViewPersons;
     private Button buttonSave;
     private AdView mAdView;
+    private StaggeredGridLayoutManager newlayoutmanger;
 
 
 
@@ -106,8 +108,14 @@ public class MainActivity extends AppCompatActivity {
 
                         RecyclerView recyclerView = (RecyclerView) findViewById(R.id.recyclerview);
                         Recycler_View_Adapter adapter = new Recycler_View_Adapter(persons, getApplication());
+                        //new layout StaggeredGridLayoutManager
+                        newlayoutmanger = new StaggeredGridLayoutManager(3,1);
+                        recyclerView.setLayoutManager(newlayoutmanger);
                         recyclerView.setAdapter(adapter);
-                        recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
+
+                        // LayoutManager
+                        //recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
+
                         /*recyclerView.addOnItemTouchListener(new RecyclerView.OnItemTouchListener() {
 
                             @Override
